@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Form</title>
+    <style>
+        body {
+            margin: 24px;
+            font-size: large;
+            font-family: Arial;
+        }
+
+        label {
+            padding-right: 12px;
+            padding-top: 12px;
+        }
+
+        textarea {
+            width: 100%;
+        }
+
+        .container-form {
+            margin: 24px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .container {
+            margin: 24px;
+            justify-content: space-between;
+        }
+
+        .form-group {
+            flex-direction: column;
+            display: flex;
+            width: 40%;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Personal Information</h2>
+    <form action="#" method="post">
+        <div class="container-form">
+            <div class="form-group">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="first-name" required>
+
+                <label for="middle-initial">Middle Initial</label>
+                <input type="text" id="middle-initial" name="middle-initial" maxlength="1">
+
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="last-name" required>
+
+                <label for="country">Country</label>
+                <select id="country" name="country" required>
+                    <option value="" selected disabled>Choose</option>
+                    <option value="1">Germany</option>
+                    <option value="2">India</option>
+                    <option value="3">United States</option>
+                    <option value="1">Others</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="matriculation">Matriculation Number</label>
+                <input type="text" id="matriculation" name="matriculation" required>
+
+                <label for="semester">Semester</label>
+                <input type="text" id="semester" name="semester" required>
+
+                <label for="program">Program</label>
+                <select id="program" name="program" required>
+                    <option value="" selected disabled>Choose</option>
+                    <option value="Cybersecurity">Cybersecurity</option>
+                    <option value="Data Science">Data Science</option>
+                    <option value="AI">Artificial Intelligence</option>
+                </select>
+
+                <label for="start-date">Start Date</label>
+                <input type="date" id="start-date" name="start-date" required>
+            </div>
+        </div>
+
+        <div class="container">
+            <p>I have head this graduate program from:</p>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="topics" value="Advertisements"> Advertisements</label>
+                <label><input type="checkbox" name="topics" value="Agency"> Agency</label>
+                <label><input type="checkbox" name="topics" value="Media"> Media</label>
+                <label><input type="checkbox" name="topics" value="Other"> Other</label>
+            </div>
+        </div>
+
+        <div class="container">
+            <p>When I finish my study, I will:</p>
+            <div class="radio-group">
+                <label><input type="radio" name="future" value="job"> Find a job in Europe.</label> <br>
+                <label><input type="radio" name="future" value="return" required> Return to my country.</label> <br>
+                <label><input type="radio" name="future" value="later"> Do practical training and then decide.</label>
+            </div>
+        </div>
+
+        <div class="container">
+            <p>Feedback for the course</p>
+            <textarea id="feedback" name="feedback" rows="3" required></textarea>
+        </div>
+
+        <br>
+    </form>
+</body>
+
+</html>
