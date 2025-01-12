@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Form</title>
     <style>
         body {
             margin: 24px;
@@ -38,11 +41,50 @@
             width: 40%;
         }
     </style>
+
+    <script>
+        function validateForm() {
+            const namePattern = /^[A-Za-z]+$/;
+            const matriculationPattern = /^[0-9]+$/;
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            const firstName = document.getElementById("first-name").value;
+            const middleInitial = document.getElementById("middle-initial").value;
+            const lastName = document.getElementById("last-name").value;
+            const matriculation = document.getElementById("matriculation").value;
+            const email = document.getElementById("email").value;
+
+            if (!namePattern.test(firstName)) {
+                alert("First Name can only contain alphabetic characters.");
+                return false;
+            }
+            if (middleInitial && !namePattern.test(middleInitial)) {
+                alert("Middle Initial can only contain alphabetic characters.");
+                return false;
+            }
+            if (!namePattern.test(lastName)) {
+                alert("Last Name can only contain alphabetic characters.");
+                return false;
+            }
+            if (!matriculationPattern.test(matriculation)) {
+                alert("Matriculation Number can only contain digits.");
+                return false;
+            }
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+            return true;
+        }
+    </script>
 </head>
 
 <body>
-    <h2>Personal Information</h2>
-    <form action="#" method="post">
+    <h1>Graduate Program Form</h1>
+    <p>Learn more about <a href="https://www.srh-berlin.de" target="_blank">SRH</a>, <a href="https://www.w3schools.com/css/" target="_blank">CSS</a>, <a href="https://www.w3schools.com/js/" target="_blank">JavaScript</a>, and <a href="https://www.w3schools.in/sdlc/software-development-life-cycle-sdlc" target="_blank">SDLC</a>.</p>
+
+    <h2>Fill in your details</h2>
+    <form onsubmit="return validateForm()" method="post" action="#">
         <div class="container-form">
             <div class="form-group">
                 <label for="first-name">First Name</label>
@@ -54,22 +96,22 @@
                 <label for="last-name">Last Name</label>
                 <input type="text" id="last-name" name="last-name" required>
 
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
                 <label for="country">Country</label>
                 <select id="country" name="country" required>
                     <option value="" selected disabled>Choose</option>
-                    <option value="1">Germany</option>
-                    <option value="2">India</option>
-                    <option value="3">United States</option>
-                    <option value="1">Others</option>
+                    <option value="Germany">Germany</option>
+                    <option value="India">India</option>
+                    <option value="United States">United States</option>
+                    <option value="Other">Other</option>
                 </select>
             </div>
 
             <div class="form-group">
                 <label for="matriculation">Matriculation Number</label>
                 <input type="text" id="matriculation" name="matriculation" required>
-
-                <label for="semester">Semester</label>
-                <input type="text" id="semester" name="semester" required>
 
                 <label for="program">Program</label>
                 <select id="program" name="program" required>
@@ -105,11 +147,17 @@
 
         <div class="container">
             <p>Feedback for the course</p>
-            <textarea id="feedback" name="feedback" rows="3" required></textarea>
+            <textarea id="feedback" name="feedback" rows="3" placeholder="Write your thoughts here..." required></textarea>
         </div>
 
-        <br>
+        <div class="submit-container">
+            <button type="submit">Submit</button>
+        </div>
     </form>
+    <p class="additional-paragraph">
+        Thank you for filling out this form! Your responses are important to us. If you have any further questions or need assistance with the application process, feel free to reach out to the support team.
+    </p>
+</body>
 </body>
 
 </html>
